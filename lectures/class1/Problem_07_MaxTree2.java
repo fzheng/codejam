@@ -1,7 +1,6 @@
 package class1;
 
-public class Problem_07_MaxTree {
-
+public class Problem_07_MaxTree2 {
   public static class Node {
     public int value;
     public Node left;
@@ -79,7 +78,7 @@ public class Problem_07_MaxTree {
   // for test -- print tree
   public static String getSpace(int num) {
     String space = " ";
-    StringBuffer buf = new StringBuffer("");
+    StringBuilder buf = new StringBuilder("");
     for (int i = 0; i < num; i++) {
       buf.append(space);
     }
@@ -91,5 +90,4 @@ public class Problem_07_MaxTree {
     Node head = getMaxTree(uniqueArr);
     printTree(head);
   }
-
 }

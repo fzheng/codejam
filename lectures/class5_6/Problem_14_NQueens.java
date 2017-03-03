@@ -46,8 +46,8 @@ public class Problem_14_NQueens {
     if (colLim == upperLim) {
       return 1;
     }
-    int pos = 0;
-    int mostRightOne = 0;
+    int pos;
+    int mostRightOne;
     pos = upperLim & (~(colLim | leftDiaLim | rightDiaLim));
     int res = 0;
     while (pos != 0) {

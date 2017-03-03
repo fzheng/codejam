@@ -14,7 +14,7 @@ public class Problem_07_RotateMatrix {
 
   public static void rotateEdge(int[][] m, int tR, int tC, int dR, int dC) {
     int times = dC - tC;
-    int tmp = 0;
+    int tmp;
     for (int i = 0; i != times; i++) {
       tmp = m[tR][tC + i];
       m[tR][tC + i] = m[dR - i][tC];

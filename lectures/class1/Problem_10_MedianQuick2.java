@@ -1,17 +1,19 @@
 package class1;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Random;
 
-public class Problem_10_MadianQuick2 {
+public class Problem_10_MedianQuick2 {
 
   public static class MedianHolder {
     private MyHeap<Integer> minHeap;
     private MyHeap<Integer> maxHeap;
 
     public MedianHolder() {
-      this.minHeap = new MyHeap<Integer>(new MinHeapComparator());
-      this.maxHeap = new MyHeap<Integer>(new MaxHeapComparator());
+      this.minHeap = new MyHeap<>(new MinHeapComparator());
+      this.maxHeap = new MyHeap<>(new MaxHeapComparator());
     }
 
     public void addNumber(Integer num) {
@@ -63,7 +65,7 @@ public class Problem_10_MadianQuick2 {
 
   }
 
-  public static class MaxHeapComparator implements Comparator<Integer> {
+  public static class MaxHeapComparator implements Serializable, Comparator<Integer> {
     @Override
     public int compare(Integer o1, Integer o2) {
       if (o2 > o1) {
@@ -74,7 +76,7 @@ public class Problem_10_MadianQuick2 {
     }
   }
 
-  public static class MinHeapComparator implements Comparator<Integer> {
+  public static class MinHeapComparator implements Serializable, Comparator<Integer> {
     @Override
     public int compare(Integer o1, Integer o2) {
       if (o2 < o1) {
@@ -119,12 +121,12 @@ public class Problem_10_MadianQuick2 {
     }
 
     public boolean isEmpty() {
-      return size == 0 ? true : false;
+      return size == 0;
     }
 
     // add a new node to heap
     public void add(K value) {
-      Node<K> newNode = new Node<K>(value);
+      Node<K> newNode = new Node<>(value);
       if (size == 0) {
         head = newNode;
         last = newNode;
@@ -138,7 +140,7 @@ public class Problem_10_MadianQuick2 {
         node = parent;
         parent = node.parent;
       }
-      Node<K> nodeToAdd = null;
+      Node<K> nodeToAdd;
       if (parent == null) {
         nodeToAdd = mostLeft(head);
         nodeToAdd.left = newNode;
@@ -232,7 +234,7 @@ public class Problem_10_MadianQuick2 {
       Node<K> right = node.right;
       Node<K> most = node;
       while (left != null) {
-        if (left != null && comp.compare(left.value, most.value) < 0) {
+        if (comp.compare(left.value, most.value) < 0) {
           most = left;
         }
         if (right != null && comp.compare(right.value, most.value) < 0) {
@@ -336,9 +338,10 @@ public class Problem_10_MadianQuick2 {
 
   // for test
   public static int[] getRandomArray(int maxLen, int maxValue) {
-    int[] res = new int[(int) (Math.random() * maxLen) + 1];
+    Random random = new Random();
+    int[] res = new int[random.nextInt(maxLen) + 1];
     for (int i = 0; i != res.length; i++) {
-      res[i] = (int) (Math.random() * maxValue);
+      res[i] = random.nextInt(maxValue);
     }
     return res;
   }

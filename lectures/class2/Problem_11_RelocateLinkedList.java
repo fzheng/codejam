@@ -27,7 +27,7 @@ public class Problem_11_RelocateLinkedList {
   }
 
   public static void mergeLR(Node left, Node right) {
-    Node next = null;
+    Node next;
     while (left.next != null) {
       next = right.next;
       right.next = left.next;

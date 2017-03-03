@@ -1,5 +1,7 @@
 package class5_6;
 
+import java.util.Random;
+
 public class Problem_18_PalindromeMinCut {
 
   public static int minCut(String str) {
@@ -27,8 +29,9 @@ public class Problem_18_PalindromeMinCut {
   public static String getRandomStringOnlyAToD(int len) {
     int range = 'D' - 'A' + 1;
     char[] charArr = new char[(int) (Math.random() * (len + 1))];
+    Random random = new Random();
     for (int i = 0; i != charArr.length; i++) {
-      charArr[i] = (char) ((int) (Math.random() * range) + 'A');
+      charArr[i] = (char) (random.nextInt(range) + 'A');
     }
     return String.valueOf(charArr);
   }
@@ -36,7 +39,7 @@ public class Problem_18_PalindromeMinCut {
   public static void main(String[] args) {
     int maxLen = 10;
     int testTimes = 5;
-    String str = null;
+    String str;
     for (int i = 0; i != testTimes; i++) {
       str = getRandomStringOnlyAToD(maxLen);
       System.out.print("\"" + str + "\"" + " : ");

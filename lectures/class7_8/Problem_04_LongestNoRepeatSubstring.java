@@ -1,5 +1,7 @@
 package class7_8;
 
+import java.util.Random;
+
 public class Problem_04_LongestNoRepeatSubstring {
 
   public static int maxUnique(String str) {
@@ -13,7 +15,7 @@ public class Problem_04_LongestNoRepeatSubstring {
     }
     int len = 0;
     int pre = -1;
-    int cur = 0;
+    int cur;
     for (int i = 0; i != chas.length; i++) {
       pre = Math.max(pre, map[chas[i]]);
       cur = i - pre;
@@ -28,8 +30,9 @@ public class Problem_04_LongestNoRepeatSubstring {
     char[] str = new char[len];
     int base = 'a';
     int range = 'z' - 'a' + 1;
+    Random random = new Random();
     for (int i = 0; i != len; i++) {
-      str[i] = (char) ((int) (Math.random() * range) + base);
+      str[i] = (char) (random.nextInt(range) + base);
     }
     return String.valueOf(str);
   }
@@ -46,7 +49,7 @@ public class Problem_04_LongestNoRepeatSubstring {
     }
     int len = -1;
     int pre = -1;
-    int cur = 0;
+    int cur;
     int end = -1;
     for (int i = 0; i != chas.length; i++) {
       pre = Math.max(pre, map[chas[i]]);

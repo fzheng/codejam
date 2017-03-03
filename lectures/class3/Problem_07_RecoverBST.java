@@ -19,7 +19,7 @@ public class Problem_07_RecoverBST {
     if (head == null) {
       return errs;
     }
-    Stack<Node> stack = new Stack<Node>();
+    Stack<Node> stack = new Stack<>();
     Node pre = null;
     while (!stack.isEmpty() || head != null) {
       if (head != null) {
@@ -43,7 +43,7 @@ public class Problem_07_RecoverBST {
     if (head == null) {
       return parents;
     }
-    Stack<Node> stack = new Stack<Node>();
+    Stack<Node> stack = new Stack<>();
     while (!stack.isEmpty() || head != null) {
       if (head != null) {
         stack.push(head);
@@ -204,7 +204,7 @@ public class Problem_07_RecoverBST {
 
   public static String getSpace(int num) {
     String space = " ";
-    StringBuffer buf = new StringBuffer("");
+    StringBuilder buf = new StringBuilder("");
     for (int i = 0; i < num; i++) {
       buf.append(space);
     }
@@ -216,7 +216,7 @@ public class Problem_07_RecoverBST {
     if (head == null) {
       return false;
     }
-    Stack<Node> stack = new Stack<Node>();
+    Stack<Node> stack = new Stack<>();
     Node pre = null;
     while (!stack.isEmpty() || head != null) {
       if (head != null) {

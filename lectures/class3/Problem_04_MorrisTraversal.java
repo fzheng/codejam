@@ -17,7 +17,7 @@ public class Problem_04_MorrisTraversal {
       return;
     }
     Node cur1 = head;
-    Node cur2 = null;
+    Node cur2;
     while (cur1 != null) {
       cur2 = cur1.left;
       if (cur2 != null) {
@@ -45,7 +45,7 @@ public class Problem_04_MorrisTraversal {
       return;
     }
     Node cur1 = head;
-    Node cur2 = null;
+    Node cur2;
     while (cur1 != null) {
       cur2 = cur1.left;
       if (cur2 != null) {
@@ -71,7 +71,7 @@ public class Problem_04_MorrisTraversal {
       return;
     }
     Node cur1 = head;
-    Node cur2 = null;
+    Node cur2;
     while (cur1 != null) {
       cur2 = cur1.left;
       if (cur2 != null) {
@@ -105,7 +105,7 @@ public class Problem_04_MorrisTraversal {
 
   public static Node reverseEdge(Node from) {
     Node pre = null;
-    Node next = null;
+    Node next;
     while (from != null) {
       next = from.right;
       from.right = pre;
@@ -138,7 +138,7 @@ public class Problem_04_MorrisTraversal {
 
   public static String getSpace(int num) {
     String space = " ";
-    StringBuffer buf = new StringBuffer("");
+    StringBuilder buf = new StringBuilder("");
     for (int i = 0; i < num; i++) {
       buf.append(space);
     }

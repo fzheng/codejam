@@ -2,21 +2,21 @@ package class5_6;
 
 public class Problem_12_ExpressionNumber {
 
-  public static boolean isValid(char[] exp) {
+  public static boolean isInvalid(char[] exp) {
     if ((exp.length & 1) == 0) {
-      return false;
+      return true;
     }
     for (int i = 0; i < exp.length; i = i + 2) {
       if ((exp[i] != '1') && (exp[i] != '0')) {
-        return false;
+        return true;
       }
     }
     for (int i = 1; i < exp.length; i = i + 2) {
       if ((exp[i] != '&') && (exp[i] != '|') && (exp[i] != '^')) {
-        return false;
+        return true;
       }
     }
-    return true;
+    return false;
   }
 
   public static int num1(String express, boolean desired) {
@@ -24,7 +24,7 @@ public class Problem_12_ExpressionNumber {
       return 0;
     }
     char[] exp = express.toCharArray();
-    if (!isValid(exp)) {
+    if (isInvalid(exp)) {
       return 0;
     }
     return p(exp, desired, 0, exp.length - 1);
@@ -54,6 +54,8 @@ public class Problem_12_ExpressionNumber {
             res += p(exp, true, l, i - 1) * p(exp, false, i + 1, r);
             res += p(exp, false, l, i - 1) * p(exp, true, i + 1, r);
             break;
+          default:
+            throw new java.lang.RuntimeException("ERROR");
         }
       }
     } else {
@@ -71,6 +73,8 @@ public class Problem_12_ExpressionNumber {
             res += p(exp, true, l, i - 1) * p(exp, true, i + 1, r);
             res += p(exp, false, l, i - 1) * p(exp, false, i + 1, r);
             break;
+          default:
+            throw new java.lang.RuntimeException("ERROR");
         }
       }
     }
@@ -82,7 +86,7 @@ public class Problem_12_ExpressionNumber {
       return 0;
     }
     char[] exp = express.toCharArray();
-    if (!isValid(exp)) {
+    if (isInvalid(exp)) {
       return 0;
     }
     int[][] t = new int[exp.length][exp.length];

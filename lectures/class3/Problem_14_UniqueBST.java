@@ -34,11 +34,11 @@ public class Problem_14_UniqueBST {
   }
 
   public static List<Node> generate(int start, int end) {
-    List<Node> res = new LinkedList<Node>();
+    List<Node> res = new LinkedList<>();
     if (start > end) {
       res.add(null);
     }
-    Node head = null;
+    Node head;
     for (int i = start; i < end + 1; i++) {
       head = new Node(i);
       List<Node> lSubs = generate(start, i - 1);
@@ -87,7 +87,7 @@ public class Problem_14_UniqueBST {
 
   public static String getSpace(int num) {
     String space = " ";
-    StringBuffer buf = new StringBuffer("");
+    StringBuilder buf = new StringBuilder("");
     for (int i = 0; i < num; i++) {
       buf.append(space);
     }
@@ -98,9 +98,7 @@ public class Problem_14_UniqueBST {
     int n = 4;
     System.out.println(numTrees(n));
     List<Node> res = generateTrees(n);
-    for (Node node : res) {
-      printTree(node);
-    }
+    res.forEach(Problem_14_UniqueBST::printTree);
   }
 
 }

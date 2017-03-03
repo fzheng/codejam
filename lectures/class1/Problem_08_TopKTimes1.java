@@ -19,7 +19,7 @@ public class Problem_08_TopKTimes1 {
     if (arr == null || topK < 1) {
       return;
     }
-    HashMap<String, Integer> map = new HashMap<String, Integer>();
+    HashMap<String, Integer> map = new HashMap<>();
     for (int i = 0; i != arr.length; i++) {
       String cur = arr[i];
       if (!map.containsKey(cur)) {

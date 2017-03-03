@@ -1,6 +1,7 @@
 package class1;
 
 import java.util.LinkedList;
+import java.util.Random;
 
 public class Problem_12_AllLessNumSubArray {
 
@@ -8,31 +9,31 @@ public class Problem_12_AllLessNumSubArray {
     if (arr == null || arr.length == 0) {
       return 0;
     }
-    LinkedList<Integer> qmin = new LinkedList<Integer>();
-    LinkedList<Integer> qmax = new LinkedList<Integer>();
+    LinkedList<Integer> qMin = new LinkedList<>();
+    LinkedList<Integer> qMax = new LinkedList<>();
     int i = 0;
     int j = 0;
     int res = 0;
     while (i < arr.length) {
       while (j < arr.length) {
-        while (!qmin.isEmpty() && arr[qmin.peekLast()] >= arr[j]) {
-          qmin.pollLast();
+        while (!qMin.isEmpty() && arr[qMin.peekLast()] >= arr[j]) {
+          qMin.pollLast();
         }
-        qmin.addLast(j);
-        while (!qmax.isEmpty() && arr[qmax.peekLast()] <= arr[j]) {
-          qmax.pollLast();
+        qMin.addLast(j);
+        while (!qMax.isEmpty() && arr[qMax.peekLast()] <= arr[j]) {
+          qMax.pollLast();
         }
-        qmax.addLast(j);
-        if (arr[qmax.getFirst()] - arr[qmin.getFirst()] > num) {
+        qMax.addLast(j);
+        if (arr[qMax.getFirst()] - arr[qMin.getFirst()] > num) {
           break;
         }
         j++;
       }
-      if (qmin.peekFirst() == i) {
-        qmin.pollFirst();
+      if (qMin.peekFirst() == i) {
+        qMin.pollFirst();
       }
-      if (qmax.peekFirst() == i) {
-        qmax.pollFirst();
+      if (qMax.peekFirst() == i) {
+        qMax.pollFirst();
       }
       res += j - i;
       i++;
@@ -42,12 +43,13 @@ public class Problem_12_AllLessNumSubArray {
 
   // for test
   public static int[] getRandomArray(int len) {
+    Random random = new Random();
     if (len < 0) {
       return null;
     }
     int[] arr = new int[len];
     for (int i = 0; i < len; i++) {
-      arr[i] = (int) (Math.random() * 10);
+      arr[i] = random.nextInt(10);
     }
     return arr;
   }
@@ -55,8 +57,8 @@ public class Problem_12_AllLessNumSubArray {
   // for test
   public static void printArray(int[] arr) {
     if (arr != null) {
-      for (int i = 0; i < arr.length; i++) {
-        System.out.print(arr[i] + " ");
+      for (int anArr : arr) {
+        System.out.print(anArr + " ");
       }
       System.out.println();
     }

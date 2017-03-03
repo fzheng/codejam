@@ -25,7 +25,7 @@ public class Problem_04_ReverseStackUsingRecursive {
   }
 
   public static void main(String[] args) {
-    Stack<Integer> test = new Stack<Integer>();
+    Stack<Integer> test = new Stack<>();
     test.push(1);
     test.push(2);
     test.push(3);

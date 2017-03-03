@@ -44,7 +44,7 @@ public class Problem_01_PreInPosTraversal {
   public static void preOrderUnRecur(Node head) {
     System.out.print("pre-order: ");
     if (head != null) {
-      Stack<Node> stack = new Stack<Node>();
+      Stack<Node> stack = new Stack<>();
       stack.add(head);
       while (!stack.isEmpty()) {
         head = stack.pop();
@@ -63,7 +63,7 @@ public class Problem_01_PreInPosTraversal {
   public static void inOrderUnRecur(Node head) {
     System.out.print("in-order: ");
     if (head != null) {
-      Stack<Node> stack = new Stack<Node>();
+      Stack<Node> stack = new Stack<>();
       while (!stack.isEmpty() || head != null) {
         if (head != null) {
           stack.push(head);
@@ -81,8 +81,8 @@ public class Problem_01_PreInPosTraversal {
   public static void posOrderUnRecur1(Node head) {
     System.out.print("pos-order: ");
     if (head != null) {
-      Stack<Node> s1 = new Stack<Node>();
-      Stack<Node> s2 = new Stack<Node>();
+      Stack<Node> s1 = new Stack<>();
+      Stack<Node> s2 = new Stack<>();
       s1.push(head);
       while (!s1.isEmpty()) {
         head = s1.pop();
@@ -104,9 +104,9 @@ public class Problem_01_PreInPosTraversal {
   public static void posOrderUnRecur2(Node h) {
     System.out.print("pos-order: ");
     if (h != null) {
-      Stack<Node> stack = new Stack<Node>();
+      Stack<Node> stack = new Stack<>();
       stack.push(h);
-      Node c = null;
+      Node c;
       while (!stack.isEmpty()) {
         c = stack.peek();
         if (c.left != null && h != c.left && h != c.right) {
@@ -147,8 +147,8 @@ public class Problem_01_PreInPosTraversal {
     posOrderRecur(head);
     System.out.println();
 
-    // unrecursive
-    System.out.println("============unrecursive=============");
+    // unRecursive
+    System.out.println("============unRecursive=============");
     preOrderUnRecur(head);
     inOrderUnRecur(head);
     posOrderUnRecur1(head);

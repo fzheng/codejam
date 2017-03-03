@@ -15,31 +15,25 @@ public class Problem_06_BiggestBSTTopologyInTree {
     }
   }
 
-  public static int bstTopoSize1(Node head) {
+  public static int bstTopologySize1(Node head) {
     if (head == null) {
       return 0;
     }
-    int max = maxTopo(head, head);
-    max = Math.max(bstTopoSize1(head.left), max);
-    max = Math.max(bstTopoSize1(head.right), max);
+    int max = maxTopology(head, head);
+    max = Math.max(bstTopologySize1(head.left), max);
+    max = Math.max(bstTopologySize1(head.right), max);
     return max;
   }
 
-  public static int maxTopo(Node h, Node n) {
+  public static int maxTopology(Node h, Node n) {
     if (h != null && n != null && isBSTNode(h, n, n.value)) {
-      return maxTopo(h, n.left) + maxTopo(h, n.right) + 1;
+      return maxTopology(h, n.left) + maxTopology(h, n.right) + 1;
     }
     return 0;
   }
 
   public static boolean isBSTNode(Node h, Node n, int value) {
-    if (h == null) {
-      return false;
-    }
-    if (h == n) {
-      return true;
-    }
-    return isBSTNode(h.value > value ? h.left : h.right, n, value);
+    return h != null && (h == n || isBSTNode(h.value > value ? h.left : h.right, n, value));
   }
 
   public static class Record {
@@ -52,8 +46,8 @@ public class Problem_06_BiggestBSTTopologyInTree {
     }
   }
 
-  public static int bstTopoSize2(Node head) {
-    Map<Node, Record> map = new HashMap<Node, Record>();
+  public static int bstTopologySize2(Node head) {
+    Map<Node, Record> map = new HashMap<>();
     return posOrder(head, map);
   }
 
@@ -67,10 +61,10 @@ public class Problem_06_BiggestBSTTopologyInTree {
     modifyMap(h.right, h.value, map, false);
     Record lr = map.get(h.left);
     Record rr = map.get(h.right);
-    int lbst = lr == null ? 0 : lr.l + lr.r + 1;
-    int rbst = rr == null ? 0 : rr.l + rr.r + 1;
-    map.put(h, new Record(lbst, rbst));
-    return Math.max(lbst + rbst + 1, Math.max(ls, rs));
+    int lBst = lr == null ? 0 : lr.l + lr.r + 1;
+    int rBst = rr == null ? 0 : rr.l + rr.r + 1;
+    map.put(h, new Record(lBst, rBst));
+    return Math.max(lBst + rBst + 1, Math.max(ls, rs));
   }
 
   public static int modifyMap(Node n, int v, Map<Node, Record> m, boolean s) {
@@ -116,7 +110,7 @@ public class Problem_06_BiggestBSTTopologyInTree {
 
   public static String getSpace(int num) {
     String space = " ";
-    StringBuffer buf = new StringBuffer("");
+    StringBuilder buf = new StringBuilder("");
     for (int i = 0; i < num; i++) {
       buf.append(space);
     }
@@ -141,8 +135,8 @@ public class Problem_06_BiggestBSTTopologyInTree {
     head.right.right.right = new Node(16);
     printTree(head);
 
-    System.out.println(bstTopoSize1(head));
-    System.out.println(bstTopoSize2(head));
+    System.out.println(bstTopologySize1(head));
+    System.out.println(bstTopologySize2(head));
 
   }
 

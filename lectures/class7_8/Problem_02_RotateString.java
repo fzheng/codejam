@@ -23,7 +23,7 @@ public class Problem_02_RotateString {
   }
 
   public static void reverse(char[] chas, int start, int end) {
-    char tmp = 0;
+    char tmp;
     while (start < end) {
       tmp = chas[start];
       chas[start] = chas[end];
@@ -48,29 +48,29 @@ public class Problem_02_RotateString {
     }
     int start = 0;
     int end = chas.length - 1;
-    int lpart = size;
-    int rpart = chas.length - size;
-    int s = Math.min(lpart, rpart);
-    int d = lpart - rpart;
+    int lPart = size;
+    int rPart = chas.length - size;
+    int s = Math.min(lPart, rPart);
+    int d = lPart - rPart;
     while (true) {
       exchange(chas, start, end, s);
       if (d == 0) {
         break;
       } else if (d > 0) {
         start += s;
-        lpart = d;
+        lPart = d;
       } else {
         end -= s;
-        rpart = -d;
+        rPart = -d;
       }
-      s = Math.min(lpart, rpart);
-      d = lpart - rpart;
+      s = Math.min(lPart, rPart);
+      d = lPart - rPart;
     }
   }
 
   public static void exchange(char[] chas, int start, int end, int size) {
     int i = end - size + 1;
-    char tmp = 0;
+    char tmp;
     while (size-- != 0) {
       tmp = chas[start];
       chas[start] = chas[i];

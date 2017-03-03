@@ -1,6 +1,7 @@
 package class1;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Problem_09_PrintMaxTopKInMatrix {
 
@@ -84,11 +85,12 @@ public class Problem_09_PrintMaxTopKInMatrix {
     if (maxRow < 0 || maxCol < 0) {
       return null;
     }
-    int[][] matrix = new int[(int) (Math.random() * maxRow) + 1][];
+    Random random = new Random();
+    int[][] matrix = new int[random.nextInt(maxRow) + 1][];
     for (int i = 0; i != matrix.length; i++) {
-      matrix[i] = new int[(int) (Math.random() * maxCol) + 1];
+      matrix[i] = new int[random.nextInt(maxCol) + 1];
       for (int j = 0; j != matrix[i].length; j++) {
-        matrix[i][j] = (int) (Math.random() * maxValue);
+        matrix[i][j] = random.nextInt(maxValue);
       }
       Arrays.sort(matrix[i]);
     }

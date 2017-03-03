@@ -15,7 +15,7 @@ public class Problem_004_CopyListWithRandom {
   }
 
   public static Node copyListWithRand1(Node head) {
-    HashMap<Node, Node> map = new HashMap<Node, Node>();
+    HashMap<Node, Node> map = new HashMap<>();
     Node cur = head;
     while (cur != null) {
       map.put(cur, new Node(cur.value));
@@ -35,7 +35,7 @@ public class Problem_004_CopyListWithRandom {
       return null;
     }
     Node cur = head;
-    Node next = null;
+    Node next;
     // copy node and link to every node
     while (cur != null) {
       next = cur.next;
@@ -44,7 +44,7 @@ public class Problem_004_CopyListWithRandom {
       cur = next;
     }
     cur = head;
-    Node curCopy = null;
+    Node curCopy;
     // set copy node rand
     while (cur != null) {
       next = cur.next.next;
@@ -84,8 +84,8 @@ public class Problem_004_CopyListWithRandom {
 
   public static void main(String[] args) {
     Node head = null;
-    Node res1 = null;
-    Node res2 = null;
+    Node res1;
+    Node res2;
     printRandLinkedList(head);
     res1 = copyListWithRand1(head);
     printRandLinkedList(res1);

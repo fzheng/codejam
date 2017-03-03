@@ -52,7 +52,7 @@ public class Problem_06_HanoiProblem {
     int to = 3;
     int i = arr.length - 1;
     int res = 0;
-    int tmp = 0;
+    int tmp;
     while (i >= 0) {
       if (arr[i] != from && arr[i] != to) {
         return -1;

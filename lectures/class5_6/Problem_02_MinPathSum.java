@@ -1,5 +1,7 @@
 package class5_6;
 
+import java.util.Random;
+
 public class Problem_02_MinPathSum {
 
   public static int minPathSum1(int[][] m) {
@@ -30,17 +32,17 @@ public class Problem_02_MinPathSum {
     }
     int more = Math.max(m.length, m[0].length);
     int less = Math.min(m.length, m[0].length);
-    boolean rowmore = more == m.length;
+    boolean rowMore = more == m.length;
     int[] arr = new int[less];
     arr[0] = m[0][0];
     for (int i = 1; i < less; i++) {
-      arr[i] = arr[i - 1] + (rowmore ? m[0][i] : m[i][0]);
+      arr[i] = arr[i - 1] + (rowMore ? m[0][i] : m[i][0]);
     }
     for (int i = 1; i < more; i++) {
-      arr[0] = arr[0] + (rowmore ? m[i][0] : m[0][i]);
+      arr[0] = arr[0] + (rowMore ? m[i][0] : m[0][i]);
       for (int j = 1; j < less; j++) {
         arr[j] = Math.min(arr[j - 1], arr[j])
-            + (rowmore ? m[i][j] : m[j][i]);
+            + (rowMore ? m[i][j] : m[j][i]);
       }
     }
     return arr[less - 1];
@@ -52,9 +54,10 @@ public class Problem_02_MinPathSum {
       return null;
     }
     int[][] result = new int[rowSize][colSize];
+    Random random = new Random();
     for (int i = 0; i != result.length; i++) {
       for (int j = 0; j != result[0].length; j++) {
-        result[i][j] = (int) (Math.random() * 10);
+        result[i][j] = random.nextInt(10);
       }
     }
     return result;

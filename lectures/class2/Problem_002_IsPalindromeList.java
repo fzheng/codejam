@@ -15,7 +15,7 @@ public class Problem_002_IsPalindromeList {
 
   // need n extra space
   public static boolean isPalindrome1(Node head) {
-    Stack<Node> stack = new Stack<Node>();
+    Stack<Node> stack = new Stack<>();
     Node cur = head;
     while (cur != null) {
       stack.push(cur);
@@ -41,7 +41,7 @@ public class Problem_002_IsPalindromeList {
       right = right.next;
       cur = cur.next.next;
     }
-    Stack<Node> stack = new Stack<Node>();
+    Stack<Node> stack = new Stack<>();
     while (right != null) {
       stack.push(right);
       right = right.next;
@@ -68,7 +68,7 @@ public class Problem_002_IsPalindromeList {
     }
     n2 = n1.next; // n2 -> right part first node
     n1.next = null; // mid.next -> null
-    Node n3 = null;
+    Node n3;
     while (n2 != null) { // right part convert
       n3 = n2.next; // n3 -> save next node
       n2.next = n1; // next of right node convert

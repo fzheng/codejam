@@ -27,7 +27,7 @@ public class Problem_03_SerializeAndReconstructTree {
 
   public static Node reconByPreString(String preStr) {
     String[] values = preStr.split("!");
-    Queue<String> queue = new LinkedList<String>();
+    Queue<String> queue = new LinkedList<>();
     for (int i = 0; i != values.length; i++) {
       queue.offer(values[i]);
     }
@@ -39,7 +39,7 @@ public class Problem_03_SerializeAndReconstructTree {
     if (value.equals("#")) {
       return null;
     }
-    Node head = new Node(Integer.valueOf(value));
+    Node head = new Node(Integer.parseInt(value));
     head.left = reconPreOrder(queue);
     head.right = reconPreOrder(queue);
     return head;
@@ -50,7 +50,7 @@ public class Problem_03_SerializeAndReconstructTree {
       return "#!";
     }
     String res = head.value + "!";
-    Queue<Node> queue = new LinkedList<Node>();
+    Queue<Node> queue = new LinkedList<>();
     queue.offer(head);
     while (!queue.isEmpty()) {
       head = queue.poll();
@@ -74,11 +74,11 @@ public class Problem_03_SerializeAndReconstructTree {
     String[] values = levelStr.split("!");
     int index = 0;
     Node head = generateNodeByString(values[index++]);
-    Queue<Node> queue = new LinkedList<Node>();
+    Queue<Node> queue = new LinkedList<>();
     if (head != null) {
       queue.offer(head);
     }
-    Node node = null;
+    Node node;
     while (!queue.isEmpty()) {
       node = queue.poll();
       node.left = generateNodeByString(values[index++]);
@@ -97,7 +97,7 @@ public class Problem_03_SerializeAndReconstructTree {
     if (val.equals("#")) {
       return null;
     }
-    return new Node(Integer.valueOf(val));
+    return new Node(Integer.parseInt(val));
   }
 
   // for test -- print tree
@@ -123,7 +123,7 @@ public class Problem_03_SerializeAndReconstructTree {
 
   public static String getSpace(int num) {
     String space = " ";
-    StringBuffer buf = new StringBuffer("");
+    StringBuilder buf = new StringBuilder("");
     for (int i = 0; i < num; i++) {
       buf.append(space);
     }

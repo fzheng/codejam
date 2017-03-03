@@ -10,8 +10,8 @@ public class Problem_21_RandomPool {
     private int size;
 
     public Pool() {
-      this.keyIndexMap = new HashMap<K, Integer>();
-      this.indexKeyMap = new HashMap<Integer, K>();
+      this.keyIndexMap = new HashMap<>();
+      this.indexKeyMap = new HashMap<>();
       this.size = 0;
     }
 
@@ -45,7 +45,7 @@ public class Problem_21_RandomPool {
   }
 
   public static void main(String[] args) {
-    Pool<String> pool = new Pool<String>();
+    Pool<String> pool = new Pool<>();
     pool.insert("zuo");
     pool.insert("cheng");
     pool.insert("yun");

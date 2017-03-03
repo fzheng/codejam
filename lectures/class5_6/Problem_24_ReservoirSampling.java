@@ -1,9 +1,12 @@
 package class5_6;
 
+import java.util.Random;
+
 public class Problem_24_ReservoirSampling {
 
   public static int rand(int max) {
-    return (int) (Math.random() * max) + 1;
+    Random random = new Random();
+    return random.nextInt(max) + 1;
   }
 
   public static int[] getKNumsRand(int k, int max) {

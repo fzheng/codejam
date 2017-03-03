@@ -11,8 +11,8 @@ public class Problem_03_StackAndQueueConvert {
     private Stack<Integer> stackPop;
 
     public TwoStacksQueue() {
-      stackPush = new Stack<Integer>();
-      stackPop = new Stack<Integer>();
+      stackPush = new Stack<>();
+      stackPop = new Stack<>();
     }
 
     public void push(int pushInt) {
@@ -47,8 +47,8 @@ public class Problem_03_StackAndQueueConvert {
     private Queue<Integer> help;
 
     public TwoQueuesStack() {
-      queue = new LinkedList<Integer>();
-      help = new LinkedList<Integer>();
+      queue = new LinkedList<>();
+      help = new LinkedList<>();
     }
 
     public void push(int pushInt) {

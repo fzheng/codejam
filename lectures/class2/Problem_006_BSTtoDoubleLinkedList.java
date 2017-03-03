@@ -16,7 +16,7 @@ public class Problem_006_BSTtoDoubleLinkedList {
   }
 
   public static Node convert1(Node head) {
-    Queue<Node> queue = new LinkedList<Node>();
+    Queue<Node> queue = new LinkedList<>();
     inOrderToQueue(head, queue);
     if (queue.isEmpty()) {
       return head;
@@ -24,7 +24,7 @@ public class Problem_006_BSTtoDoubleLinkedList {
     head = queue.poll();
     Node pre = head;
     pre.left = null;
-    Node cur = null;
+    Node cur;
     while (!queue.isEmpty()) {
       cur = queue.poll();
       pre.right = cur;

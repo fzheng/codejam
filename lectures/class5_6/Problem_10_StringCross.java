@@ -60,12 +60,8 @@ public class Problem_10_StringCross {
     for (int i = 1; i <= longs.length; i++) {
       dp[0] = dp[0] && longs[i - 1] == chaim[i - 1];
       for (int j = 1; j <= shorts.length; j++) {
-        if ((longs[i - 1] == chaim[i + j - 1] && dp[j])
-            || (shorts[j - 1] == chaim[i + j - 1] && dp[j - 1])) {
-          dp[j] = true;
-        } else {
-          dp[j] = false;
-        }
+        dp[j] = (longs[i - 1] == chaim[i + j - 1] && dp[j])
+            || (shorts[j - 1] == chaim[i + j - 1] && dp[j - 1]);
       }
     }
     return dp[shorts.length];

@@ -9,8 +9,8 @@ public class Problem_17_SubArrayMaxProduct {
     double max = arr[0];
     double min = arr[0];
     double res = arr[0];
-    double maxEnd = 0;
-    double minEnd = 0;
+    double maxEnd;
+    double minEnd;
     for (int i = 1; i < arr.length; ++i) {
       maxEnd = max * arr[i];
       minEnd = min * arr[i];

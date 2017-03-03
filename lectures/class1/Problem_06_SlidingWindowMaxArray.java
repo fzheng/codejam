@@ -8,7 +8,7 @@ public class Problem_06_SlidingWindowMaxArray {
     if (arr == null || w < 1 || arr.length < w) {
       return null;
     }
-    LinkedList<Integer> qmax = new LinkedList<Integer>();
+    LinkedList<Integer> qmax = new LinkedList<>();
     int[] res = new int[arr.length - w + 1];
     int index = 0;
     for (int i = 0; i < arr.length; i++) {

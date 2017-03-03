@@ -1,14 +1,16 @@
 package class1;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
+import java.util.Random;
 
-public class Problem_10_MadianQuick1 {
+public class Problem_10_MedianQuick1 {
 
   public static class MedianHolder {
-    private PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>(new MaxHeapComparator());
-    private PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>(new MinHeapComparator());
+    private PriorityQueue<Integer> maxHeap = new PriorityQueue<>(new MaxHeapComparator());
+    private PriorityQueue<Integer> minHeap = new PriorityQueue<>(new MinHeapComparator());
 
     private void modifyTwoHeapsSize() {
       if (this.maxHeap.size() == this.minHeap.size() + 2) {
@@ -56,7 +58,7 @@ public class Problem_10_MadianQuick1 {
 
   }
 
-  public static class MaxHeapComparator implements Comparator<Integer> {
+  public static class MaxHeapComparator implements Serializable, Comparator<Integer> {
     @Override
     public int compare(Integer o1, Integer o2) {
       if (o2 > o1) {
@@ -67,7 +69,7 @@ public class Problem_10_MadianQuick1 {
     }
   }
 
-  public static class MinHeapComparator implements Comparator<Integer> {
+  public static class MinHeapComparator implements Serializable, Comparator<Integer> {
     @Override
     public int compare(Integer o1, Integer o2) {
       if (o2 < o1) {
@@ -80,9 +82,10 @@ public class Problem_10_MadianQuick1 {
 
   // for test
   public static int[] getRandomArray(int maxLen, int maxValue) {
-    int[] res = new int[(int) (Math.random() * maxLen) + 1];
+    Random random = new Random();
+    int[] res = new int[random.nextInt(maxLen) + 1];
     for (int i = 0; i != res.length; i++) {
-      res[i] = (int) (Math.random() * maxValue);
+      res[i] = random.nextInt(maxValue);
     }
     return res;
   }

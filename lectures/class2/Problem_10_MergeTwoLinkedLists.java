@@ -19,7 +19,7 @@ public class Problem_10_MergeTwoLinkedLists {
     Node cur1 = head == head1 ? head1 : head2;
     Node cur2 = head == head1 ? head2 : head1;
     Node pre = null;
-    Node next = null;
+    Node next;
     while (cur1 != null && cur2 != null) {
       if (cur1.value <= cur2.value) {
         pre = cur1;

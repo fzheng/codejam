@@ -36,9 +36,9 @@ public class Problem_12_LongestIntegratedLength {
       return 0;
     }
     int len = 0;
-    int max = 0;
-    int min = 0;
-    HashSet<Integer> set = new HashSet<Integer>();
+    int max;
+    int min;
+    HashSet<Integer> set = new HashSet<>();
     for (int i = 0; i < arr.length; i++) {
       max = Integer.MIN_VALUE;
       min = Integer.MAX_VALUE;

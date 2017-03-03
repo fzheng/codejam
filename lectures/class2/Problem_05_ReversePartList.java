@@ -28,7 +28,7 @@ public class Problem_05_ReversePartList {
     node1 = fPre == null ? head : fPre.next;
     Node node2 = node1.next;
     node1.next = tPos;
-    Node next = null;
+    Node next;
     while (node2 != tPos) {
       next = node2.next;
       node2.next = node1;

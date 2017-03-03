@@ -56,8 +56,8 @@ public class Problem_15_PalindromeString {
     int lpsr = lps.length - 1;
     int resl = 0;
     int resr = res.length - 1;
-    int tmpl = 0;
-    int tmpr = 0;
+    int tmpl;
+    int tmpr;
     while (lpsl <= lpsr) {
       tmpl = chasl;
       tmpr = chasr;

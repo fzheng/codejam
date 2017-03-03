@@ -8,14 +8,14 @@ public class Problem_16_ParenthesesProblem {
     }
     char[] chas = str.toCharArray();
     int status = 0;
-    for (int i = 0; i < chas.length; i++) {
-      if (chas[i] != ')' && chas[i] != '(') {
+    for (char cha : chas) {
+      if (cha != ')' && cha != '(') {
         return false;
       }
-      if (chas[i] == ')' && --status < 0) {
+      if (cha == ')' && --status < 0) {
         return false;
       }
-      if (chas[i] == '(') {
+      if (cha == '(') {
         status++;
       }
     }
@@ -28,7 +28,7 @@ public class Problem_16_ParenthesesProblem {
     }
     char[] chas = str.toCharArray();
     int[] dp = new int[chas.length];
-    int pre = 0;
+    int pre;
     int res = 0;
     for (int i = 1; i < chas.length; i++) {
       if (chas[i] == ')') {

@@ -22,7 +22,7 @@ public class Problem_10_IsBSTAndCBT {
     boolean res = true;
     Node pre = null;
     Node cur1 = head;
-    Node cur2 = null;
+    Node cur2;
     while (cur1 != null) {
       cur2 = cur1.left;
       if (cur2 != null) {
@@ -50,10 +50,10 @@ public class Problem_10_IsBSTAndCBT {
     if (head == null) {
       return true;
     }
-    Queue<Node> queue = new LinkedList<Node>();
+    Queue<Node> queue = new LinkedList<>();
     boolean leaf = false;
-    Node l = null;
-    Node r = null;
+    Node l;
+    Node r;
     queue.offer(head);
     while (!queue.isEmpty()) {
       head = queue.poll();
@@ -97,7 +97,7 @@ public class Problem_10_IsBSTAndCBT {
 
   public static String getSpace(int num) {
     String space = " ";
-    StringBuffer buf = new StringBuffer("");
+    StringBuilder buf = new StringBuilder("");
     for (int i = 0; i < num; i++) {
       buf.append(space);
     }

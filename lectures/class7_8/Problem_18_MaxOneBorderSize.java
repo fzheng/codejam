@@ -1,5 +1,7 @@
 package class7_8;
 
+import java.util.Random;
+
 public class Problem_18_MaxOneBorderSize {
 
   public static void setBorderMap(int[][] m, int[][] right, int[][] down) {
@@ -58,9 +60,10 @@ public class Problem_18_MaxOneBorderSize {
 
   public static int[][] generateRandom01Matrix(int rowSize, int colSize) {
     int[][] res = new int[rowSize][colSize];
+    Random random = new Random();
     for (int i = 0; i != rowSize; i++) {
       for (int j = 0; j != colSize; j++) {
-        res[i][j] = (int) (Math.random() * 2);
+        res[i][j] = random.nextInt(2);
       }
     }
     return res;

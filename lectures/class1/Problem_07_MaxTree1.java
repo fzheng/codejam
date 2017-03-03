@@ -3,7 +3,7 @@ package class1;
 import java.util.HashMap;
 import java.util.Stack;
 
-public class Problem_07_MaxTree {
+public class Problem_07_MaxTree1 {
 
   public static class Node {
     public int value;
@@ -62,19 +62,19 @@ public class Problem_07_MaxTree {
     for (int i = 0; i != arr.length; i++) {
       nodes[i] = new Node(arr[i]);
     }
-    Stack<Node> stack = new Stack<Node>();
-    HashMap<Node, Node> parents = new HashMap<Node, Node>();
-    for (int i = 0; i < nodes.length; i++) {
-      while (!stack.isEmpty() && stack.peek().value < nodes[i].value) {
-        parents.put(stack.pop(), (stack.isEmpty() || (nodes[i].value < stack.peek().value)) ? nodes[i] : stack.peek());
+    Stack<Node> stack = new Stack<>();
+    HashMap<Node, Node> parents = new HashMap<>();
+    for (Node node : nodes) {
+      while (!stack.isEmpty() && stack.peek().value < node.value) {
+        parents.put(stack.pop(), (stack.isEmpty() || (node.value < stack.peek().value)) ? node : stack.peek());
       }
-      stack.push(nodes[i]);
+      stack.push(node);
     }
     while (!stack.isEmpty()) {
       parents.put(stack.pop(), stack.isEmpty() ? null : stack.peek());
     }
     Node head = null;
-    Node parent = null;
+    Node parent;
     for (int i = 0; i != arr.length; i++) {
       parent = parents.get(nodes[i]);
       if (parent == null) {
@@ -113,7 +113,7 @@ public class Problem_07_MaxTree {
   // for test -- print tree
   public static String getSpace(int num) {
     String space = " ";
-    StringBuffer buf = new StringBuffer("");
+    StringBuilder buf = new StringBuilder("");
     for (int i = 0; i < num; i++) {
       buf.append(space);
     }
@@ -128,5 +128,4 @@ public class Problem_07_MaxTree {
     Node head2 = getMaxTree2(uniqueArr2);
     printTree(head2);
   }
-
 }

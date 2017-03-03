@@ -17,11 +17,11 @@ public class Problem_06_ConvertEveryKNodesInList {
     if (K < 2) {
       return head;
     }
-    Stack<Node> stack = new Stack<Node>();
+    Stack<Node> stack = new Stack<>();
     Node newHead = head;
     Node cur = head;
     Node pre = null;
-    Node next = null;
+    Node next;
     while (cur != null) {
       next = cur.next;
       stack.push(cur);
@@ -39,7 +39,7 @@ public class Problem_06_ConvertEveryKNodesInList {
     if (left != null) {
       left.next = cur;
     }
-    Node next = null;
+    Node next;
     while (!stack.isEmpty()) {
       next = stack.pop();
       cur.next = next;
@@ -54,9 +54,9 @@ public class Problem_06_ConvertEveryKNodesInList {
       return head;
     }
     Node cur = head;
-    Node start = null;
+    Node start;
     Node pre = null;
-    Node next = null;
+    Node next;
     int count = 1;
     while (cur != null) {
       next = cur.next;
@@ -76,7 +76,7 @@ public class Problem_06_ConvertEveryKNodesInList {
   public static void resign2(Node left, Node start, Node end, Node right) {
     Node pre = start;
     Node cur = start.next;
-    Node next = null;
+    Node next;
     while (cur != right) {
       next = cur.next;
       cur.next = pre;

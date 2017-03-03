@@ -34,7 +34,7 @@ public class Problem_03_CoinsWay {
     if (index == arr.length) {
       res = aim == 0 ? 1 : 0;
     } else {
-      int mapValue = 0;
+      int mapValue;
       for (int i = 0; arr[index] * i <= aim; i++) {
         mapValue = map[index + 1][aim - arr[index] * i];
         if (mapValue != 0) {
@@ -59,7 +59,7 @@ public class Problem_03_CoinsWay {
     for (int j = 1; arr[0] * j <= aim; j++) {
       dp[0][arr[0] * j] = 1;
     }
-    int num = 0;
+    int num;
     for (int i = 1; i < arr.length; i++) {
       for (int j = 1; j <= aim; j++) {
         num = 0;
@@ -112,8 +112,8 @@ public class Problem_03_CoinsWay {
     int[] coins = {10, 5, 1, 25};
     int aim = 2000;
 
-    long start = 0;
-    long end = 0;
+    long start;
+    long end;
     start = System.currentTimeMillis();
     System.out.println(coins1(coins, aim));
     end = System.currentTimeMillis();

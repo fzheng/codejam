@@ -41,14 +41,14 @@ public class Problem_05_HanoiStack {
     }
   }
 
-  public static enum Action {
+  public enum Action {
     No, LToM, MToL, MToR, RToM
   }
 
   public static int hanoiProblem2(int num, String left, String mid, String right) {
-    Stack<Integer> lS = new Stack<Integer>();
-    Stack<Integer> mS = new Stack<Integer>();
-    Stack<Integer> rS = new Stack<Integer>();
+    Stack<Integer> lS = new Stack<>();
+    Stack<Integer> mS = new Stack<>();
+    Stack<Integer> rS = new Stack<>();
     lS.push(Integer.MAX_VALUE);
     mS.push(Integer.MAX_VALUE);
     rS.push(Integer.MAX_VALUE);

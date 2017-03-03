@@ -19,8 +19,8 @@ public class Problem_008_ReceiveAndPrintOrderLine {
     private int lastPrint;
 
     public MessageBox() {
-      headMap = new HashMap<Integer, Node>();
-      tailMap = new HashMap<Integer, Node>();
+      headMap = new HashMap<>();
+      tailMap = new HashMap<>();
       lastPrint = 0;
     }
 

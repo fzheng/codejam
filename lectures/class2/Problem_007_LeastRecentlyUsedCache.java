@@ -82,9 +82,9 @@ public class Problem_007_LeastRecentlyUsedCache {
       if (capacity < 1) {
         throw new RuntimeException("should be more than 0.");
       }
-      this.keyNodeMap = new HashMap<K, Node<V>>();
-      this.nodeKeyMap = new HashMap<Node<V>, K>();
-      this.nodeList = new NodeDoubleLinkedList<V>();
+      this.keyNodeMap = new HashMap<>();
+      this.nodeKeyMap = new HashMap<>();
+      this.nodeList = new NodeDoubleLinkedList<>();
       this.capacity = capacity;
     }
 
@@ -103,7 +103,7 @@ public class Problem_007_LeastRecentlyUsedCache {
         node.value = value;
         this.nodeList.moveNodeToTail(node);
       } else {
-        Node<V> newNode = new Node<V>(value);
+        Node<V> newNode = new Node<>(value);
         this.keyNodeMap.put(key, newNode);
         this.nodeKeyMap.put(newNode, key);
         this.nodeList.addNode(newNode);
@@ -123,7 +123,7 @@ public class Problem_007_LeastRecentlyUsedCache {
   }
 
   public static void main(String[] args) {
-    MyCache<String, Integer> testCache = new MyCache<String, Integer>(3);
+    MyCache<String, Integer> testCache = new MyCache<>(3);
     testCache.set("A", 1);
     testCache.set("B", 2);
     testCache.set("C", 3);

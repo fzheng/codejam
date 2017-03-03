@@ -31,7 +31,7 @@ public class Problem_11_NumberToLetter {
     char[] chs = str.toCharArray();
     int cur = chs[chs.length - 1] == '0' ? 0 : 1;
     int next = 1;
-    int tmp = 0;
+    int tmp;
     for (int i = chs.length - 2; i >= 0; i--) {
       if (chs[i] == '0') {
         next = cur;

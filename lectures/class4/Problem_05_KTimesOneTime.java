@@ -7,8 +7,7 @@ public class Problem_05_KTimesOneTime {
     for (int i = 0; i != arr.length; i++) {
       setExclusiveOr(eO, arr[i], k);
     }
-    int res = getNumFromKSysNum(eO, k);
-    return res;
+    return getNumFromKSysNum(eO, k);
   }
 
   public static void setExclusiveOr(int[] eO, int value, int k) {

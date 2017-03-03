@@ -3,8 +3,8 @@ package class5_6;
 public class Problem_19_RegularExpressionMatch {
 
   public static boolean isValid(char[] s, char[] e) {
-    for (int i = 0; i < s.length; i++) {
-      if (s[i] == '*' || s[i] == '.') {
+    for (char value : s) {
+      if (value == '*' || value == '.') {
         return false;
       }
     }
@@ -22,7 +22,7 @@ public class Problem_19_RegularExpressionMatch {
     }
     char[] s = str.toCharArray();
     char[] e = exp.toCharArray();
-    return isValid(s, e) ? process(s, e, 0, 0) : false;
+    return isValid(s, e) && process(s, e, 0, 0);
   }
 
   public static boolean process(char[] s, char[] e, int si, int ei) {
@@ -66,7 +66,7 @@ public class Problem_19_RegularExpressionMatch {
             }
             si++;
           }
-          if (dp[i][j] != true) {
+          if (!dp[i][j]) {
             dp[i][j] = dp[si][j + 2];
           }
         }

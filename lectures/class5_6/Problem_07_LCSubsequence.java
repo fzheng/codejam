@@ -8,7 +8,7 @@ public class Problem_07_LCSubsequence {
     }
     char[] chs1 = str1.toCharArray();
     char[] chs2 = str2.toCharArray();
-    int[][] dp = getdp(chs1, chs2);
+    int[][] dp = getDp(chs1, chs2);
     int m = chs1.length - 1;
     int n = chs2.length - 1;
     char[] res = new char[dp[m][n]];
@@ -27,7 +27,7 @@ public class Problem_07_LCSubsequence {
     return String.valueOf(res);
   }
 
-  public static int[][] getdp(char[] str1, char[] str2) {
+  public static int[][] getDp(char[] str1, char[] str2) {
     int[][] dp = new int[str1.length][str2.length];
     dp[0][0] = str1[0] == str2[0] ? 1 : 0;
     for (int i = 1; i < str1.length; i++) {

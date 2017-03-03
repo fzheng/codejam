@@ -9,9 +9,9 @@ public class Problem_03_ExpressionCompute {
   }
 
   public static int[] value(char[] str, int i) {
-    LinkedList<String> que = new LinkedList<String>();
+    LinkedList<String> que = new LinkedList<>();
     int pre = 0;
-    int[] bra = null;
+    int[] bra;
     while (i < str.length && str[i] != ')') {
       if (str[i] >= '0' && str[i] <= '9') {
         pre = pre * 10 + str[i++] - '0';
@@ -31,12 +31,12 @@ public class Problem_03_ExpressionCompute {
 
   public static void addNum(LinkedList<String> que, int num) {
     if (!que.isEmpty()) {
-      int cur = 0;
+      int cur;
       String top = que.pollLast();
       if (top.equals("+") || top.equals("-")) {
         que.addLast(top);
       } else {
-        cur = Integer.valueOf(que.pollLast());
+        cur = Integer.parseInt(que.pollLast());
         num = top.equals("*") ? (cur * num) : (cur / num);
       }
     }
@@ -46,17 +46,21 @@ public class Problem_03_ExpressionCompute {
   public static int getNum(LinkedList<String> que) {
     int res = 0;
     boolean add = true;
-    String cur = null;
-    int num = 0;
+    String cur;
+    int num;
     while (!que.isEmpty()) {
       cur = que.pollFirst();
-      if (cur.equals("+")) {
-        add = true;
-      } else if (cur.equals("-")) {
-        add = false;
-      } else {
-        num = Integer.valueOf(cur);
-        res += add ? num : (-num);
+      switch (cur) {
+        case "+":
+          add = true;
+          break;
+        case "-":
+          add = false;
+          break;
+        default:
+          num = Integer.parseInt(cur);
+          res += add ? num : (-num);
+          break;
       }
     }
     return res;

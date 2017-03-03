@@ -28,7 +28,7 @@ public class Problem_17_ZeroLeftOneStringNumber {
     }
     int pre = 1;
     int cur = 1;
-    int tmp = 0;
+    int tmp;
     for (int i = 2; i < n + 1; i++) {
       tmp = cur;
       cur += pre;
@@ -57,14 +57,14 @@ public class Problem_17_ZeroLeftOneStringNumber {
     int[][] tmp = m;
     for (; p != 0; p >>= 1) {
       if ((p & 1) != 0) {
-        res = muliMatrix(res, tmp);
+        res = multiMatrix(res, tmp);
       }
-      tmp = muliMatrix(tmp, tmp);
+      tmp = multiMatrix(tmp, tmp);
     }
     return res;
   }
 
-  public static int[][] muliMatrix(int[][] m1, int[][] m2) {
+  public static int[][] multiMatrix(int[][] m1, int[][] m2) {
     int[][] res = new int[m1.length][m2[0].length];
     for (int i = 0; i < m1.length; i++) {
       for (int j = 0; j < m2[0].length; j++) {

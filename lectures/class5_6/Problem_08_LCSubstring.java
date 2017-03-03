@@ -2,13 +2,13 @@ package class5_6;
 
 public class Problem_08_LCSubstring {
 
-  public static String lcst1(String str1, String str2) {
+  public static String lCst1(String str1, String str2) {
     if (str1 == null || str2 == null || str1.equals("") || str2.equals("")) {
       return "";
     }
     char[] chs1 = str1.toCharArray();
     char[] chs2 = str2.toCharArray();
-    int[][] dp = getdp(chs1, chs2);
+    int[][] dp = getDp(chs1, chs2);
     int end = 0;
     int max = 0;
     for (int i = 0; i < chs1.length; i++) {
@@ -22,7 +22,7 @@ public class Problem_08_LCSubstring {
     return str1.substring(end - max + 1, end + 1);
   }
 
-  public static int[][] getdp(char[] str1, char[] str2) {
+  public static int[][] getDp(char[] str1, char[] str2) {
     int[][] dp = new int[str1.length][str2.length];
     for (int i = 0; i < str1.length; i++) {
       if (str1[i] == str2[0]) {
@@ -44,7 +44,7 @@ public class Problem_08_LCSubstring {
     return dp;
   }
 
-  public static String lcst2(String str1, String str2) {
+  public static String lCst2(String str1, String str2) {
     if (str1 == null || str2 == null || str1.equals("") || str2.equals("")) {
       return "";
     }
@@ -83,8 +83,8 @@ public class Problem_08_LCSubstring {
   public static void main(String[] args) {
     String str1 = "ABC1234567DEFG";
     String str2 = "HIJKL1234567MNOP";
-    System.out.println(lcst1(str1, str2));
-    System.out.println(lcst2(str1, str2));
+    System.out.println(lCst1(str1, str2));
+    System.out.println(lCst2(str1, str2));
 
   }
 

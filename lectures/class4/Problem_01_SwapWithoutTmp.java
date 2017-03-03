@@ -1,7 +1,6 @@
 package class4;
 
 public class Problem_01_SwapWithoutTmp {
-
   public static void main(String[] args) {
     int a = 16;
     int b = 111;
@@ -13,5 +12,4 @@ public class Problem_01_SwapWithoutTmp {
     System.out.println(a);
     System.out.println(b);
   }
-
 }

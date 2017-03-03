@@ -17,7 +17,7 @@ public class Problem_07_RemoveRepetition {
     if (head == null) {
       return;
     }
-    HashSet<Integer> set = new HashSet<Integer>();
+    HashSet<Integer> set = new HashSet<>();
     Node pre = head;
     Node cur = head.next;
     set.add(head.value);
@@ -34,8 +34,8 @@ public class Problem_07_RemoveRepetition {
 
   public static void removeRep2(Node head) {
     Node cur = head;
-    Node pre = null;
-    Node next = null;
+    Node pre;
+    Node next;
     while (cur != null) {
       pre = cur;
       next = cur.next;

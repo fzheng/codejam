@@ -1,6 +1,7 @@
 package class5_6;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Problem_25_ShuffleProblem {
 
@@ -33,7 +34,7 @@ public class Problem_25_ShuffleProblem {
       int next = (2 * trigger) % bloom;
       int cur = next;
       int record = arr[next + base];
-      int tmp = 0;
+      int tmp;
       arr[next + base] = arr[trigger + base];
       while (cur != trigger) {
         next = (2 * cur) % bloom;
@@ -61,18 +62,19 @@ public class Problem_25_ShuffleProblem {
 
   // for test
   public static void printArray(int[] arr) {
-    for (int i = 0; i < arr.length; i++) {
-      System.out.print(arr[i] + " ");
+    for (int anArr : arr) {
+      System.out.print(anArr + " ");
     }
     System.out.println();
   }
 
   // for test
   public static int[] generateArray() {
-    int len = (int) (Math.random() * 10) * 2;
+    Random random = new Random();
+    int len = random.nextInt(10) * 2;
     int[] arr = new int[len];
     for (int i = 0; i < len; i++) {
-      arr[i] = (int) (Math.random() * 100);
+      arr[i] = random.nextInt(100);
     }
     return arr;
   }
@@ -84,9 +86,7 @@ public class Problem_25_ShuffleProblem {
     for (int i = 1; i <= arr.length; i++) {
       tarr[((2 * i) % bloom) - 1] = arr[i - 1];
     }
-    for (int i = 0; i < arr.length; i++) {
-      arr[i] = tarr[i];
-    }
+    System.arraycopy(tarr, 0, arr, 0, arr.length);
   }
 
   // for test
@@ -110,7 +110,7 @@ public class Problem_25_ShuffleProblem {
       shuffle(arr1);
       shuffleTest(arr2);
       if (!equalArrays(arr1, arr2)) {
-        System.out.println("ooops!");
+        System.out.println("oops!");
         printArray(arr);
         printArray(arr1);
         printArray(arr2);

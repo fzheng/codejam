@@ -6,11 +6,11 @@ public class Problem_05_LIS {
     if (arr == null || arr.length == 0) {
       return null;
     }
-    int[] dp = getdp1(arr);
+    int[] dp = getDp1(arr);
     return generateLIS(arr, dp);
   }
 
-  public static int[] getdp1(int[] arr) {
+  public static int[] getDp1(int[] arr) {
     int[] dp = new int[arr.length];
     for (int i = 0; i < arr.length; i++) {
       dp[i] = 1;
@@ -47,19 +47,19 @@ public class Problem_05_LIS {
     if (arr == null || arr.length == 0) {
       return null;
     }
-    int[] dp = getdp2(arr);
+    int[] dp = getDp2(arr);
     return generateLIS(arr, dp);
   }
 
-  public static int[] getdp2(int[] arr) {
+  public static int[] getDp2(int[] arr) {
     int[] dp = new int[arr.length];
     int[] ends = new int[arr.length];
     ends[0] = arr[0];
     dp[0] = 1;
     int right = 0;
-    int l = 0;
-    int r = 0;
-    int m = 0;
+    int l;
+    int r;
+    int m;
     for (int i = 1; i < arr.length; i++) {
       l = 0;
       r = right;

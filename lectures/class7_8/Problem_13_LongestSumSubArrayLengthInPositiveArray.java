@@ -1,5 +1,7 @@
 package class7_8;
 
+import java.util.Random;
+
 public class Problem_13_LongestSumSubArrayLengthInPositiveArray {
 
   public static int getMaxLength(int[] arr, int k) {
@@ -29,8 +31,9 @@ public class Problem_13_LongestSumSubArrayLengthInPositiveArray {
 
   public static int[] generatePositiveArray(int size) {
     int[] result = new int[size];
+    Random random = new Random();
     for (int i = 0; i != size; i++) {
-      result[i] = (int) (Math.random() * 10) + 1;
+      result[i] = random.nextInt(10) + 1;
     }
     return result;
   }

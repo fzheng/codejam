@@ -14,7 +14,7 @@ public class Problem_08_RemoveGivenValue {
   }
 
   public static Node removeValue1(Node head, int num) {
-    Stack<Node> stack = new Stack<Node>();
+    Stack<Node> stack = new Stack<>();
     while (head != null) {
       if (head.value != num) {
         stack.push(head);

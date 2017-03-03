@@ -11,17 +11,17 @@ public class Problem_04_EvenTimesOddTimes {
   }
 
   public static void printOddTimesNum2(int[] arr) {
-    int eO = 0, eOhasOne = 0;
+    int eO = 0, eOHasOne = 0;
     for (int curNum : arr) {
       eO ^= curNum;
     }
     int rightOne = eO & (~eO + 1);
     for (int cur : arr) {
       if ((cur & rightOne) != 0) {
-        eOhasOne ^= cur;
+        eOHasOne ^= cur;
       }
     }
-    System.out.println(eOhasOne + " " + (eO ^ eOhasOne));
+    System.out.println(eOHasOne + " " + (eO ^ eOHasOne));
   }
 
   public static void main(String[] args) {

@@ -27,9 +27,9 @@ public class Problem_23_TrieTree {
       }
       char[] chs = word.toCharArray();
       TrieNode node = root;
-      int index = 0;
-      for (int i = 0; i < chs.length; i++) {
-        index = chs[i] - 'a';
+      int index;
+      for (char ch : chs) {
+        index = ch - 'a';
         if (node.map[index] == null) {
           node.map[index] = new TrieNode();
         }
@@ -43,9 +43,9 @@ public class Problem_23_TrieTree {
       if (search(word)) {
         char[] chs = word.toCharArray();
         TrieNode node = root;
-        int index = 0;
-        for (int i = 0; i < chs.length; i++) {
-          index = chs[i] - 'a';
+        int index;
+        for (char ch : chs) {
+          index = ch - 'a';
           if (node.map[index].path-- == 1) {
             node.map[index] = null;
             return;
@@ -62,9 +62,9 @@ public class Problem_23_TrieTree {
       }
       char[] chs = word.toCharArray();
       TrieNode node = root;
-      int index = 0;
-      for (int i = 0; i < chs.length; i++) {
-        index = chs[i] - 'a';
+      int index;
+      for (char ch : chs) {
+        index = ch - 'a';
         if (node.map[index] == null) {
           return false;
         }
@@ -79,9 +79,9 @@ public class Problem_23_TrieTree {
       }
       char[] chs = pre.toCharArray();
       TrieNode node = root;
-      int index = 0;
-      for (int i = 0; i < chs.length; i++) {
-        index = chs[i] - 'a';
+      int index;
+      for (char ch : chs) {
+        index = ch - 'a';
         if (node.map[index] == null) {
           return 0;
         }

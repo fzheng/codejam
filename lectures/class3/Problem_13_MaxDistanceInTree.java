@@ -23,11 +23,11 @@ public class Problem_13_MaxDistanceInTree {
       return 0;
     }
     int lMax = posOrder(head.left, record);
-    int maxfromLeft = record[0];
+    int maxFromLeft = record[0];
     int rMax = posOrder(head.right, record);
     int maxFromRight = record[0];
-    int curNodeMax = maxfromLeft + maxFromRight + 1;
-    record[0] = Math.max(maxfromLeft, maxFromRight) + 1;
+    int curNodeMax = maxFromLeft + maxFromRight + 1;
+    record[0] = Math.max(maxFromLeft, maxFromRight) + 1;
     return Math.max(Math.max(lMax, rMax), curNodeMax);
   }
 

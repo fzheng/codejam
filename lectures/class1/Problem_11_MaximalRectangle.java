@@ -10,9 +10,9 @@ public class Problem_11_MaximalRectangle {
     }
     int maxArea = 0;
     int[] height = new int[map[0].length];
-    for (int i = 0; i < map.length; i++) {
+    for (int[] aMap : map) {
       for (int j = 0; j < map[0].length; j++) {
-        height[j] = map[i][j] == 0 ? 0 : height[j] + 1;
+        height[j] = aMap[j] == 0 ? 0 : height[j] + 1;
       }
       maxArea = Math.max(maxRecFromBottom(height), maxArea);
     }
@@ -24,7 +24,7 @@ public class Problem_11_MaximalRectangle {
       return 0;
     }
     int maxArea = 0;
-    Stack<Integer> stack = new Stack<Integer>();
+    Stack<Integer> stack = new Stack<>();
     for (int i = 0; i < height.length; i++) {
       while (!stack.isEmpty() && height[i] <= height[stack.peek()]) {
         int j = stack.pop();

@@ -1,5 +1,7 @@
 package class4;
 
+import java.util.Random;
+
 public class Problem_06_AddMinusMultiDivideByBit {
 
   public static int add(int a, int b) {
@@ -66,8 +68,9 @@ public class Problem_06_AddMinusMultiDivideByBit {
   }
 
   public static void main(String[] args) {
-    int a = (int) (Math.random() * 100000) - 50000;
-    int b = (int) (Math.random() * 100000) - 50000;
+    Random random = new Random();
+    int a = random.nextInt(100000) - 50000;
+    int b = random.nextInt(100000) - 50000;
     System.out.println("a = " + a + ", b = " + b);
     System.out.println(add(a, b));
     System.out.println(a + b);

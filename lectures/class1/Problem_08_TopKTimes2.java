@@ -23,12 +23,12 @@ public class Problem_08_TopKTimes2 {
     public TopKRecord(int size) {
       heap = new Node[size];
       index = 0;
-      strNodeMap = new HashMap<String, Node>();
-      nodeIndexMap = new HashMap<Node, Integer>();
+      strNodeMap = new HashMap<>();
+      nodeIndexMap = new HashMap<>();
     }
 
     public void add(String str) {
-      Node curNode = null;
+      Node curNode;
       int preIndex = -1;
       if (!strNodeMap.containsKey(str)) {
         curNode = new Node(str, 1);

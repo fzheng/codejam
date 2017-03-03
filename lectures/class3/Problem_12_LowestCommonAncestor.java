@@ -33,7 +33,7 @@ public class Problem_12_LowestCommonAncestor {
     private HashMap<Node, Node> map;
 
     public Record1(Node head) {
-      map = new HashMap<Node, Node>();
+      map = new HashMap<>();
       if (head != null) {
         map.put(head, null);
       }
@@ -55,7 +55,7 @@ public class Problem_12_LowestCommonAncestor {
     }
 
     public Node query(Node o1, Node o2) {
-      HashSet<Node> path = new HashSet<Node>();
+      HashSet<Node> path = new HashSet<>();
       while (map.containsKey(o1)) {
         path.add(o1);
         o1 = map.get(o1);
@@ -73,7 +73,7 @@ public class Problem_12_LowestCommonAncestor {
     private HashMap<Node, HashMap<Node, Node>> map;
 
     public Record2(Node head) {
-      map = new HashMap<Node, HashMap<Node, Node>>();
+      map = new HashMap<>();
       initMap(head);
       setMap(head);
     }
@@ -82,7 +82,7 @@ public class Problem_12_LowestCommonAncestor {
       if (head == null) {
         return;
       }
-      map.put(head, new HashMap<Node, Node>());
+      map.put(head, new HashMap<>());
       initMap(head.left);
       initMap(head.right);
     }
@@ -172,7 +172,7 @@ public class Problem_12_LowestCommonAncestor {
 
   public static String getSpace(int num) {
     String space = " ";
-    StringBuffer buf = new StringBuffer("");
+    StringBuilder buf = new StringBuilder("");
     for (int i = 0; i < num; i++) {
       buf.append(space);
     }

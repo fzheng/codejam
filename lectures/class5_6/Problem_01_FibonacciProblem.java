@@ -21,7 +21,7 @@ public class Problem_01_FibonacciProblem {
     }
     int res = 1;
     int pre = 1;
-    int tmp = 0;
+    int tmp;
     for (int i = 3; i <= n; i++) {
       tmp = res;
       res = res + pre;
@@ -50,14 +50,14 @@ public class Problem_01_FibonacciProblem {
     int[][] tmp = m;
     for (; p != 0; p >>= 1) {
       if ((p & 1) != 0) {
-        res = muliMatrix(res, tmp);
+        res = multiMatrix(res, tmp);
       }
-      tmp = muliMatrix(tmp, tmp);
+      tmp = multiMatrix(tmp, tmp);
     }
     return res;
   }
 
-  public static int[][] muliMatrix(int[][] m1, int[][] m2) {
+  public static int[][] multiMatrix(int[][] m1, int[][] m2) {
     int[][] res = new int[m1.length][m2[0].length];
     for (int i = 0; i < m1.length; i++) {
       for (int j = 0; j < m2[0].length; j++) {
@@ -88,7 +88,7 @@ public class Problem_01_FibonacciProblem {
     }
     int res = 2;
     int pre = 1;
-    int tmp = 0;
+    int tmp;
     for (int i = 3; i <= n; i++) {
       tmp = res;
       res = res + pre;
@@ -128,15 +128,15 @@ public class Problem_01_FibonacciProblem {
     }
     int res = 3;
     int pre = 2;
-    int prepre = 1;
-    int tmp1 = 0;
-    int tmp2 = 0;
+    int prePre = 1;
+    int tmp1;
+    int tmp2;
     for (int i = 4; i <= n; i++) {
       tmp1 = res;
       tmp2 = pre;
-      res = res + prepre;
+      res = res + prePre;
       pre = tmp1;
-      prepre = tmp2;
+      prePre = tmp2;
     }
     return res;
   }

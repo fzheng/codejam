@@ -22,7 +22,6 @@ public class Problem_003_SmallerEqualBigger {
       cur = cur.next;
     }
     Node[] nodeArr = new Node[i];
-    i = 0;
     cur = head;
     for (i = 0; i != nodeArr.length; i++) {
       nodeArr[i] = cur;
@@ -64,7 +63,7 @@ public class Problem_003_SmallerEqualBigger {
     Node eT = null; // equal tail
     Node bH = null; // big head
     Node bT = null; // big tail
-    Node next = null; // save next node
+    Node next; // save next node
     // every node distributed to three lists
     while (head != null) {
       next = head.next;

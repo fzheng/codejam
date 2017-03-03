@@ -80,8 +80,8 @@ public class Problem_005_FindFirstIntersectNode {
   }
 
   public static Node bothLoop(Node head1, Node loop1, Node head2, Node loop2) {
-    Node cur1 = null;
-    Node cur2 = null;
+    Node cur1;
+    Node cur2;
     if (loop1 == loop2) {
       cur1 = head1;
       cur2 = head2;

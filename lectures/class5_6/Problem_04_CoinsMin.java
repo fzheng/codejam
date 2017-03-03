@@ -15,7 +15,7 @@ public class Problem_04_CoinsMin {
         dp[0][j] = dp[0][j - arr[0]] + 1;
       }
     }
-    int left = 0;
+    int left;
     for (int i = 1; i < n; i++) {
       for (int j = 1; j <= aim; j++) {
         left = max;
@@ -41,7 +41,7 @@ public class Problem_04_CoinsMin {
         dp[j] = dp[j - arr[0]] + 1;
       }
     }
-    int left = 0;
+    int left;
     for (int i = 1; i < n; i++) {
       for (int j = 1; j <= aim; j++) {
         left = max;
@@ -67,14 +67,14 @@ public class Problem_04_CoinsMin {
     if (arr[0] <= aim) {
       dp[0][arr[0]] = 1;
     }
-    int leftup = 0;
+    int leftUp;
     for (int i = 1; i < n; i++) {
       for (int j = 1; j <= aim; j++) {
-        leftup = max;
+        leftUp = max;
         if (j - arr[i] >= 0 && dp[i - 1][j - arr[i]] != max) {
-          leftup = dp[i - 1][j - arr[i]] + 1;
+          leftUp = dp[i - 1][j - arr[i]] + 1;
         }
-        dp[i][j] = Math.min(leftup, dp[i - 1][j]);
+        dp[i][j] = Math.min(leftUp, dp[i - 1][j]);
       }
     }
     return dp[n - 1][aim] != max ? dp[n - 1][aim] : -1;
@@ -93,14 +93,14 @@ public class Problem_04_CoinsMin {
     if (arr[0] <= aim) {
       dp[arr[0]] = 1;
     }
-    int leftup = 0;
+    int leftUp;
     for (int i = 1; i < n; i++) {
       for (int j = aim; j > 0; j--) {
-        leftup = max;
+        leftUp = max;
         if (j - arr[i] >= 0 && dp[j - arr[i]] != max) {
-          leftup = dp[j - arr[i]] + 1;
+          leftUp = dp[j - arr[i]] + 1;
         }
-        dp[j] = Math.min(leftup, dp[j]);
+        dp[j] = Math.min(leftUp, dp[j]);
       }
     }
     return dp[aim] != max ? dp[aim] : -1;

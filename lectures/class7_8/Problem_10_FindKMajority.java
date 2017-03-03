@@ -38,7 +38,7 @@ public class Problem_10_FindKMajority {
       System.out.println("the value of K is invalid.");
       return;
     }
-    HashMap<Integer, Integer> cands = new HashMap<Integer, Integer>();
+    HashMap<Integer, Integer> cands = new HashMap<>();
     for (int i = 0; i != arr.length; i++) {
       if (cands.containsKey(arr[i])) {
         cands.put(arr[i], cands.get(arr[i]) + 1);
@@ -63,7 +63,7 @@ public class Problem_10_FindKMajority {
   }
 
   public static void allCandsMinusOne(HashMap<Integer, Integer> map) {
-    List<Integer> removeList = new LinkedList<Integer>();
+    List<Integer> removeList = new LinkedList<>();
     for (Entry<Integer, Integer> set : map.entrySet()) {
       Integer key = set.getKey();
       Integer value = set.getValue();
@@ -72,14 +72,12 @@ public class Problem_10_FindKMajority {
       }
       map.put(key, value - 1);
     }
-    for (Integer removeKey : removeList) {
-      map.remove(removeKey);
-    }
+    removeList.forEach(map::remove);
   }
 
   public static HashMap<Integer, Integer> getReals(int[] arr,
                                                    HashMap<Integer, Integer> cands) {
-    HashMap<Integer, Integer> reals = new HashMap<Integer, Integer>();
+    HashMap<Integer, Integer> reals = new HashMap<>();
     for (int i = 0; i != arr.length; i++) {
       int curNum = arr[i];
       if (cands.containsKey(curNum)) {
