@@ -90,7 +90,7 @@ public class Problem_01_GetMinStack {
 
     System.out.println("=============");
 
-    MyStack1 stack2 = new MyStack1();
+    MyStack2 stack2 = new MyStack2();
     stack2.push(3);
     System.out.println(stack2.getMin());
     stack2.push(4);
@@ -100,5 +100,4 @@ public class Problem_01_GetMinStack {
     System.out.println(stack2.pop());
     System.out.println(stack2.getMin());
   }
-
 }
