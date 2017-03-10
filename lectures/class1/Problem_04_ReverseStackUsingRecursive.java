@@ -14,14 +14,13 @@ public class Problem_04_ReverseStackUsingRecursive {
   }
 
   public static int getAndRemoveLastElement(Stack<Integer> stack) {
-    int result = stack.pop();
+    int element = stack.pop();
     if (stack.isEmpty()) {
-      return result;
-    } else {
-      int last = getAndRemoveLastElement(stack);
-      stack.push(result);
-      return last;
+      return element;
     }
+    int last = getAndRemoveLastElement(stack);
+    stack.push(element);
+    return last;
   }
 
   public static void main(String[] args) {
@@ -35,7 +34,5 @@ public class Problem_04_ReverseStackUsingRecursive {
     while (!test.isEmpty()) {
       System.out.println(test.pop());
     }
-
   }
-
 }
