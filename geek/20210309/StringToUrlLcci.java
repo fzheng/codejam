@@ -1,12 +1,10 @@
 class Solution {
     public String replaceSpaces(String S, int length) {
         char[] chs = S.toCharArray();
-        int n = 0;
+        int n = length;
         for (int i = 0; i < length; i++) {
             if (chs[i] == ' ') {
-                n += 3;
-            } else {
-                n++;
+                n += 2;
             }
         }
         int j = length - 1;
